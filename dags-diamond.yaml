@@ -21,7 +21,7 @@ spec:
           parameters: [{name: message, value: A}]
       - name: B
         dependencies: [A]
-        template: echo
+        template: echo2
         arguments:
           parameters: [{name: message, value: B}]
       - name: C
@@ -41,4 +41,11 @@ spec:
       - name: message
     container:
       image: alpine:3.7
+      command: [echo, "{{inputs.parameters.message}}"]
+  - name: echo2
+    inputs:
+      parameters:
+      - name: message
+    container:
+      image: alpine:3.11
       command: [echo, "{{inputs.parameters.message}}"]
