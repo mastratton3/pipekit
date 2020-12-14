@@ -48,4 +48,4 @@ spec:
       - name: message
     container:
       image: alpine:3.11
-      command: [echo, "{{inputs.parameters.message}}"]
+      command: [echo, "{{inputs.parameters.message}}", echo, "{{inputs.parameters.message}}"]
